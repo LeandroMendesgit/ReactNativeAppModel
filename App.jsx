@@ -1,14 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Person from './components/Person';
+import { useState } from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import Car from './components/Car';
 
 export default function App() {
+  const [value,setValue] = useState(false)
+  
   return (
     <View style={styles.container}>
-      <Person nome="Luis "
-       idade="28"
-       telefone="08197070-7070 "/>      
-    
+      <Text>
+        <Car name="Monza"/>
+      </Text>
+      <Button title={value ? 'Tanque cheio!' : 'Encher tanque'}
+      onPress={() => {setValue(true)}}
+      disabled={value}
+      >
+      </Button>
+      <Button
+      title='Esvaziar tanque'
+      disabled={!value}
+      onPress={() => {
+        setValue(false)
+      }}
+      >
+      </Button>
     </View>
   );
 }
