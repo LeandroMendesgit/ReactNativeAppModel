@@ -4,7 +4,8 @@ import React from 'react'
 const Car = (props) => {
   return (
     <View>
-      <Text>O carro {props.name}</Text>
+     {props.name && <Text>O carro {props.name}</Text>}
+     {!props.name && <Text>Carro não identificado</Text>}
     </View>
   )
 }
